@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import ShopProvider from './product_cards_system/shopContext.jsx'
+import ShopProvider from './shop_cards/data_and_context/ShopContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <ShopProvider>

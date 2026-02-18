@@ -9,6 +9,7 @@ export function ShopProvider ({ children }) {
 
   const changeVisualization = () => {
     setIsGrid(!isGrid)
+    console.log(`Visualização em Grid: ${isGrid}`)
   }
 
     const filterItems = (items, type) => {

@@ -1,4 +1,12 @@
 // src/data/products.js
+import teclado from './images/teclado.png';
+import mouse from './images/mouse.png';
+import fone from './images/fone.png';
+import webcam from './images/webcam.png';
+import mousepad from './images/mousepad.png';
+import consultoria from './images/consultoria.png';
+import mentoria_tech from './images/mentoria_tech.png';
+import typescript_nextjs from './images/typescript_nextjs.png';
 
 export const products = [
   // Produtos Físicos
@@ -7,7 +15,7 @@ export const products = [
     type: 'physical',
     name: 'Teclado Mecânico RGB Gamer',
     price: 450.00,
-    image: 'https://static.wixstatic.com/media/4f5a2c_e682aa0bfd104b57a5930ddb7eec1dd8~mv2.jpeg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/4f5a2c_e682aa0bfd104b57a5930ddb7eec1dd8~mv2.jpeg',
+    image: teclado,
     stock: 5,
     rating: 4.5,
     reviews: 230,
@@ -19,7 +27,7 @@ export const products = [
     type: 'physical',
     name: 'Mouse Gamer Wireless 16000 DPI',
     price: 289.90,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGm7w5k6EXS2Khv8_Brupf_gOGVMap-FfwxA&s',
+    image: mouse,
     stock: 23,
     rating: 4.7,
     reviews: 445,
@@ -31,7 +39,7 @@ export const products = [
     type: 'physical',
     name: 'Headset Gamer 7.1 Surround',
     price: 320.00,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHotrFOT-7SABA7hMXlAb2SmCERD88jwS0Q&s',
+    image: fone,
     stock: 45,
     rating: 4.3,
     reviews: 189,
@@ -43,7 +51,7 @@ export const products = [
     type: 'physical',
     name: 'Webcam Full HD 1080p com Microfone',
     price: 199.90,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSswNSWHovSPLBnIwXLWoD4QBSD1r7MghjHtw&s',
+    image: webcam,
     stock: 2,
     rating: 4.6,
     reviews: 312,
@@ -55,7 +63,7 @@ export const products = [
     type: 'physical',
     name: 'Mousepad Gamer XXL Extended',
     price: 89.90,
-    image: 'https://media.spdigital.cl/thumbnails/products/xbx02xts_9c38c8d8_thumbnail_256.jpg',
+    image: mousepad,
     stock: 67,
     rating: 4.4,
     reviews: 523,
@@ -131,7 +139,7 @@ export const products = [
     type: 'service',
     name: 'Consultoria Web Development',
     price: 150.00,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRe5MjXQVmYZrID8UyZutKdoJRe6yZGII-A&s',
+    image: consultoria,
     duration: '1 hora',
     availability: 'Disponível hoje',
     rating: 5.0,
@@ -155,7 +163,7 @@ export const products = [
     type: 'service',
     name: 'Mentoria Carreira Tech - Sessão',
     price: 120.00,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlKF_6eGWX4BpONtqaQ6Km5TkaTO7x2zbung&s',
+    image: mentoria_tech,
     duration: '1 hora',
     availability: 'Disponível amanhã',
     rating: 4.8,
@@ -167,7 +175,7 @@ export const products = [
     type: 'service',
     name: 'Setup de Projeto Next.js + TypeScript',
     price: 250.00,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVJJK4nc51k5y_WK4Xn-Yrmv86DYctNoypRw&s',
+    image: typescript_nextjs,
     duration: '3 horas',
     availability: 'Disponível em 1 semana',
     rating: 4.7,

@@ -8,15 +8,15 @@ const getStockType = () => {
     switch(product.type) {
       case 'physical':
         return (
-            <p>Estoque: {product.stock}</p>
+            `Estoque: ${product.stock}`
         )
       case 'digital':
         return (
-            <p> Tamanho: {product.downloadSize}</p>
+            `Tamanho: ${product.downloadSize}`
         )
       case 'service':
         return (
-            <p> Duração: {product.duration}</p>
+            `Duração: ${product.duration}`
         )
       default:
         return null
@@ -27,15 +27,15 @@ const getStockType = () => {
     switch(product.type) {
       case 'physical':
         return (
-            <p>{product.shipping}</p>
+            `{product.shipping}`
         )
       case 'digital':
         return (
-            <p>{product.format}</p>
+            `{product.format}`
         )
       case 'service':
         return (
-            <p>{product.availability}</p>
+            `{product.availability}`
         )
       default:
         return null

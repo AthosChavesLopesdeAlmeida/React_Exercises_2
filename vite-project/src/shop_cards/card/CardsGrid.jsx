@@ -9,7 +9,6 @@ const CardsGrid = ({ products }) => {
   return (
     <div className={isGrid ? 'cards_grid' : 'cards_line'}>
       {products.map((product) => {
-        console.log(product)
         return (
           <FullCard product={product}/>
         )

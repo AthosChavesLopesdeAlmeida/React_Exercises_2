@@ -8,7 +8,7 @@ const CardTop = ({ product }) => {
       {hasBadges && (
         <div className="badges-wrapper"> 
           {product.badges.map((badge, index) => (
-            <span key={index} className={`badge`}>
+            <span key={index} className={`badge badge-${badge}`}>
               {badge.toUpperCase()}
             </span>
           ))}

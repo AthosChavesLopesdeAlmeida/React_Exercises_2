@@ -4,7 +4,7 @@ import CardsGrid from './shop_cards/card/CardsGrid'
 import { products } from './shop_cards/data_and_context/data'
 import { useEffect } from 'react'
 
-function App() {
+function ShopApp() {
 
   const { setShopItems, filterItems, changeVisualization, isGrid, shopItems } = UseShop()
 
@@ -48,4 +48,4 @@ function App() {
   )
 }
 
-export default App
+export default ShopApp

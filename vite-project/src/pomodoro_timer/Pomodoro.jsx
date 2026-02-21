@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import './pomodoro.css'
 
 const PHASES = {
   work : {label: 'Foco', duration: 25 * 60},
@@ -6,7 +7,7 @@ const PHASES = {
 }
 
 function formatTime (seconds) {
-  const m = String(Math.floor(seconds / 60).padStart(2, '0')) // Calcula os minutos completos (arredonda com Math.floor)
+  const m = Math.floor(seconds / 60).toString().padStart(2, '0') // Calcula os minutos completos (arredonda com Math.floor)
   const s = String(seconds % 60).padStart(2, 0) // Calcula os minutos incompletos (Aí faz os segundos)
   return `${m}:${s}`
 }
@@ -26,6 +27,29 @@ const Pomodoro = () => {
   })
 
   const intervalRef = useRef(null)
+
+
+  function handlePhaseComplete() {
+    setIsRunning(false);
+
+    setPhase((currentPhase) => {
+      if (currentPhase === "work") {
+        // Registra sessão de foco completada
+        const today = getTodayKey();
+        setHistory((prev) => ({
+          ...prev,
+          [today]: (prev[today] || 0) + 1,
+        }));
+        // Vai para descanso
+        setTimeLeft(PHASES.break.duration);
+        return "break";
+      } else {
+        // Volta para foco
+        setTimeLeft(PHASES.work.duration);
+        return "work";
+      }
+    });
+  }
 
 
   useEffect(() => {
@@ -51,28 +75,61 @@ const Pomodoro = () => {
   useEffect(() => {
     localStorage.setItem('pomodoro_history', JSON.stringify(history))
   }, [history])
+  
 
-
-
-  function handlePhaseComplete () {
+  function handleReset () {
+    clearInterval(intervalRef.current)
     setIsRunning(false)
-
-    setPhase((currentPhase) => {
-      if (currentPhase === 'work') {
-      const today = getTodayKey()
-      setHistory((prev) => {
-        ...prev,
-        [today] : (prev[today] || 0) + 1
-      })
-      } else {
-        
-      }
-    })
+    setTimeLeft(PHASES[phase].duration)
   }
+
+  const todaySessions = history[getTodayKey()] || 0
+  const currentPhase = PHASES[phase] 
 
 
   return (
-    <div>Pomodoro</div>
+    <div className="pomodoro_container">
+      <h1>Pomodoro</h1>
+
+      <div className="div1">
+        <div className="div2">
+          <h3>
+            {currentPhase.label}
+          </h3> 
+      </div>
+
+      <div>
+        {formatTime(timeLeft)}
+      </div>
+
+      <div className="div3">
+        <button onClick={() => setIsRunning((v) => !v)}>
+          {isRunning ? "⏸ Pausar" : "▶ Iniciar"}
+        </button>
+         <button onClick={handleReset}>↺ Resetar</button>
+      </div>
+      </div>
+
+        <hr style={{width:'90%'}}/>
+
+      <div className="div4">
+        <h2>Hoje</h2>
+        <p>{todaySessions}</p>
+
+        <h3>Histórico</h3>
+        {Object.entries(history).length === 0 ? (
+          <p>Nenhuma sessão ainda</p>
+        ) : (
+          Object.entries(history)
+            .sort((a , b) => b[0].localeCompare(a[0]))
+            .map(([date, count]) => {
+              <div key={date}>
+                {date} : {"🍅".repeat(Math.min(count, 10))} {count > 10 ? `(${count})` : ''}
+              </div>
+            })
+        )}
+      </div>
+    </div>
   )
 }
 

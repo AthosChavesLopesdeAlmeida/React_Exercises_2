@@ -1,14 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import ShopApp from './shop_cards/ShopApp.jsx'
-import ShopProvider from './shop_cards/data_and_context/ShopContext.jsx'
+import Pomodoro from './pomodoro_timer/Pomodoro'
 
 createRoot(document.getElementById('root')).render(
-  <ShopProvider>
     <StrictMode>
-      <ShopApp />
+      <Pomodoro/>
     </StrictMode>
-  </ShopProvider>
-  
 )

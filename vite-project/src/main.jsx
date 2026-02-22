@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Pomodoro from './pomodoro_timer/Pomodoro'
+import Delay_Effect from './test/delay_useEffect'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-      <Pomodoro/>
+      <Delay_Effect/>
     </StrictMode>
 )

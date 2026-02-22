@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Delay_Effect from './test/delay_useEffect'
+import Save_Effect from './test/local_effect_save'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-      <Delay_Effect/>
+      <Save_Effect/>
     </StrictMode>
 )
